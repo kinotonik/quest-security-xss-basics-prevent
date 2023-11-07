@@ -47,7 +47,10 @@
         input.addEventListener("input", updateValue);
 
         function updateValue(e) {
-            log.innerHTML = e.target.value;
+            // log.innerHTML = e.target.value;
+            // change en ... pour eviter XSS: Au lieu d'utiliser innerHTML, qui ne fait aucune distinction entre le texte et le HTML et est donc vulnérable aux attaques XSS,
+            // utiliser innerText ou textContent, qui traitent toute entrée comme du texte brut.
+            log.textContent = e.target.value;
         }
 
     </script>
